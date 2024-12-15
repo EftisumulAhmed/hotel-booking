@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now - Paradise Hotel</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; }
+        header { background: #4CAF50; color: white; padding: 1rem; }
+        nav a { margin: 0 10px; color: #4CAF50; text-decoration: none; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        form { margin: 2rem auto; max-width: 300px; text-align: left; background: white; padding: 1rem; border: 1px solid #ddd; }
+        label, input, select, button { display: block; width: 100%; margin-bottom: 1rem; padding: 0.5rem; }
+        button { background: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background: #45a049; }
+        footer { background: #333; color: white; padding: 1rem; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book Your Stay</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="rooms.html">Rooms</a>
+        <a href="booking.html">Book Now</a>
+    </nav>
+    <form id="bookingForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Your Name" required>
+        
+        <label for="roomType">Room Type:</label>
+        <select id="roomType">
+            <option value="Single">Single</option>
+            <option value="Double">Double</option>
+            <option value="Suite">Suite</option>
+        </select>
+        
+        <label for="date">Check-In Date:</label>
+        <input type="date" id="date" required>
+        
+        <button type="submit">Book Now</button>
+    </form>
+    <p id="confirmation" style="color: green;"></p>
+    <footer>
+        &copy; 2024 Paradise Hotel
+    </footer>
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const roomType = document.getElementById('roomType').value;
+            const date = document.getElementById('date').value;
+            document.getElementById('confirmation').textContent = 
+                `Thank you, ${name}. Your ${roomType} room is booked for ${date}.`;
+        });
+    </script>
+</body>
+</html>
